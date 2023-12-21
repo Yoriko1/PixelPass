@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: borderbox;
+    
+
+}
+
+.resizer {
+    width: 5px;
+    height: 100%;
+    background: #1E90FF;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: col-resize;
+}
+
+.container {
+    width:100%;
+    height: 100vh;
+    background-color: #142537;
+    
+}
+
+.form-box  {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 50px 60px 70px; 
+    text-align: center;
+
+}
+
+.form-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: black;
+    position: relative;
+}
+
+.input-field{
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.input-field i {
+    margin-left: 15px;
+    color: black;
+}
+
+.btn-field{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-field button {
+    flex-basis: 48%;
+    background: #1E90FF; 
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.authenticator-field {
+    margin: 15px 0;
+    background: #eaeaea;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authenticator-description {
+    margin-bottom: 10px;
+}
+
+.authenticator-buttons button {
+    width: 100%;
+    background: #000000;
+    color: #fff;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.authenticator-footer {
+    margin-top: 20px; 
+    font-size: 14px; 
+    color: #333; 
+    text-align: right;
+}
+
+#registerForm {
+    width: 70%;
+    max-width: 600px;
+    height: 500px;
+}
+
+#registerForm label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#registerForm .input-field {
+    background: transparent; 
+    margin: 10px 0;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+#registerForm input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 0; 
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px; 
+    
+}
+
+#backToSignInBtn {
+    background: #1E90FF;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.authenticator-logo {
+    max-width: 10%; /* Ensures the image doesn't exceed its container's width */
+    height: auto;    /* Maintains the aspect ratio of the image */
+    margin-bottom: 5px; /* Adjust this margin as needed */
+}

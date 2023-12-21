@@ -1,0 +1,19 @@
+ /* Make this a positioned parent */
+#canvas-wrapper{ position: relative; display: flex; justify-content: center;}
+#overlay     { position: absolute; align-self: center; width:640px; height:640px; display: grid; justify-content: center; grid-template-columns: auto auto auto; }
+#tile {height: 213.3px; width: 213.3px;}
+.outsideWrapper{ 
+    width:640px; height:640px; 
+    margin:20px 60px; 
+}
+.insideWrapper{ 
+    width:100%; height:100%; 
+    position:relative;}
+.coveredImage{ 
+    width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+}
+.coveringCanvas{ 
+    width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+}

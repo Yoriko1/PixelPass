@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="register1.css">
+    <script src="https://kit.fontawesome.com/7384ca6b67.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="resizable"></div>
+    <div class="container">
+        <div class="form-box" id="signinForm">
+            <h1>Registration</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Password" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Confirm Email" required>
+                    </div>
+
+                    <div class="imageupload-field">
+                        <!-- Image and file input will be added here -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    <script>
+        // Function to handle image upload
+        function handleImageUpload() {
+            // Create a file input element
+            var inputElement = document.createElement('input');
+            inputElement.type = 'file';
+
+            // Create an image element
+            var imageElement = document.createElement('img');
+            imageElement.style.width = '100px'; // Adjust the width as needed
+
+            // Add event listener for file selection
+            inputElement.addEventListener('change', function () {
+                // Access the selected file
+                var selectedFile = inputElement.files[0];
+
+                // Display the selected image
+                if (selectedFile) {
+                    // Set the image source
+                    var imageURL = URL.createObjectURL(selectedFile);
+                    imageElement.src = imageURL;
+
+                    // Append the image and file input to the "imageupload-field"
+                    document.querySelector('.imageupload-field').appendChild(imageElement);
+                    document.querySelector('.imageupload-field').appendChild(inputElement);
+                }
+            });
+
+            // Trigger the file input dialog
+            inputElement.click();
+        }
+
+        // Attach the function to a button click or any other trigger
+        document.querySelector('.imageupload-field').addEventListener('click', handleImageUpload);
+    </script>  
+</body>
+</html>

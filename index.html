@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://kit.fontawesome.com/7384ca6b67.js" crossorigin="anonymous"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>-->
+</head>
+<body>
+    <div class="government-section">
+        <img src="us_flag_small.png" alt="US Flag" class="flag-icon">
+        An official website of the United States government.
+    </div>
+
+    <div class="resizable"></div>
+    <div class="container">
+
+        <nav class="navbar">
+            <a href="#" class="logo"><i class="fa-solid fa-house-flag"></i><span></span></a>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="user-actions">
+                <a href="#" >Register</a>
+                <a href="index.html">Sign In</a>
+                <a id="next"></a>
+            </div>
+        </nav>
+
+        <div class="form-box" id="signinForm">
+            <h1>Sign In</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" name="username" required>
+                    </div>
+
+                    <div class="authenticator-field">
+                        <img src="Pixel_Pass_1.png" alt="Pixel Pass Logo" class="authenticator-logo">
+                        <!-- <div class="authenticator-description">Pixel Pass Authentication</div> -->
+                        <div class="authenticator-buttons">
+                            <button type="button" id="loginAuthenticatorBtn">Login</button>
+                            <button type="button" id="registerAuthenticatorBtn">Register</button>
+                        </div>
+                        <div class="authenticator-footer">Protected and powered by Pixel Pass Authentication</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <script type="module" src="script.js"></script>    
+</body>
+</html>

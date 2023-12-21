@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="register1.css">
+    <script src="https://kit.fontawesome.com/7384ca6b67.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="resizable"></div>
+    <div class="container">
+        <div class="form-box" id="signinForm">
+            <h1>Registration</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Password" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Confirm Email" required>
+                    </div>
+
+                    <div class="imageupload-field">
+                        <label for="imageUpload">Upload Image</label>
+                        <input type="file" id="imageUpload" accept="image/*">
+                        <img id="selectedImage" style="display: none; max-width: 100%; margin-top: 10px;">
+                    </div>
+
+                    <!-- Save button -->
+                    <button type="button" id="saveBtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Save button click event
+        document.getElementById("saveBtn").addEventListener("click", function() {
+            // Get the selected image file
+            var imageInput = document.getElementById("imageUpload");
+            var selectedImage = imageInput.files[0];
+    
+            // Display the selected image above the "Choose File" button
+            var selectedImageElement = document.getElementById("selectedImage");
+            if (selectedImage) {
+                selectedImageElement.src = URL.createObjectURL(selectedImage);
+                selectedImageElement.style.display = 'block';
+            } else {
+                // If no image is selected, hide the image element
+                selectedImageElement.style.display = 'none';
+            }
+    
+            // Perform further actions, such as uploading the image to a server
+            // For demonstration purposes, we'll just display an alert with the image name
+            if (selectedImage) {
+                alert("Selected Image: " + selectedImage.name);
+            } else {
+                alert("Please select an image");
+            }
+        });
+    </script>
+    
+</body>
+</html>

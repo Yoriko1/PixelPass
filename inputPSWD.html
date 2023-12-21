@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        
+    </body>
+    <head>
+        <title>Enter your password</title>
+        <meta charset="ISO-8859-1">
+        <link rel = "stylesheet" type = "text/css" href="pswdstyle.css">
+        
+    </head>
+    <body>
+        
+        <center>
+        
+        <h2>Enter your image password sequence.</h2>
+        <div class="outsideWrapper">
+            <div class="insideWrapper">
+                <img id="image" class="coveredImage">
+                <canvas id="canvas" width="640px" height="640px" class="coveringCanvas"></canvas>
+                <div id = "overlay">
+
+                </div>
+            </div>
+        </div>
+        <!--
+        <div id = "canvas-wrapper" width = "640px" height= "640px">
+            <canvas id="canvas" width="640px" height="640px"></canvas>
+            <img id="image">
+            <div id = "overlay">
+
+             </div>
+        </div>
+        -->
+        
+        <br>
+        <div id ="buttons">
+        <button id="enter" >Enter</button>
+        <button id="clear"  onclick="clearSelected()">Clear</button>
+        </div>
+        <script src="inputPSWD.js" type="module" ></script>
+        <script type="text/javascript">
+
+
+
+            class tile{
+               width; height; img; offsetX; offsetY; num; box; num;
+               constructor(w,h,img,ox,oy){
+                   this.width = w;
+                   this.height = h;
+                   this.img = img;
+                   this.offsetX = ox;
+                   this.offsetY = oy;
+                   this.num = count;
+                  
+                   
+                   
+               }
+               spawn(x,y){
+                   ctx.drawImage(this.img,this.offsetX,this.offsetY,this.width,this.height,x * this.width,y * this.height ,this.width,this.height);
+                   console.log(x,y);
+                  
+               }
+               setDiv(){
+                   this.box = document.createElement("div");
+                   this.box.id = "tile";
+                   this.box.style.left = "" + this.offsetY +"px";
+                   this.box.style.top = "" + this.offsetX+"px";
+                   //this.box.style.gridColumn = "1 / span 1";
+                   canvasOverlay.appendChild(this.box);
+                   this.box.addEventListener('click', () => { 
+                   if(!input.includes(this.num)){
+                       this.box.style.backgroundColor = "rgba(47,79,79,0.75)"
+                       input.push(this.num)}
+               });
+               }
+
+              
+           }
+           
+
+           var canvas;
+           var ctx;
+           var canvasOverlay;
+           var img = new Image();
+           var canvasW = 640;
+           var canvasH = 640;
+           var subW = 213.3;
+           var subH = 213.3;
+           var imagePieces = [];
+           var testSequence;//= [3,2,1,6,5,4,8,7,0]; TODO: replace with user password from DB
+           var input = []
+           var count = 0;
+
+           var lock = 0;
+
+           img.src = document.getElementById("image").src;
+           console.log(img);
+            //TODO: replace with image from database
+
+           function loadImage(){
+               canvas = document.getElementById("canvas");
+               ctx = canvas.getContext("2d");
+               canvasOverlay = document.getElementById("overlay");
+               ctx.drawImage(img,0,0,canvasW,canvasH,0,0,canvasW,canvasH);
+               cut();
+               drawLines();
+           }
+           loadImage();
+           function cut(){
+               if(imagePieces != []){
+                   imagePieces = [];
+               }
+               for(var y = 0; y < 3;y++){
+                   for(var x = 0; x < 3; x++){
+                       var t = new tile(subW,subH,img,subW*x,subH*y,count);
+                       t.setDiv();
+                       count++;
+                       imagePieces.push(t);
+                      
+                   }
+                   
+               }
+               count = 0;
+               
+               drawLines();
+           }
+               function drawLines(){
+                   ctx.beginPath();
+                   ctx.lineWidth = 3;
+                   ctx.lineStyle = "black";
+                   for(var p = 0; p < canvasW; p += subW){
+                       ctx.moveTo(p,0);
+                       ctx.lineTo(p, canvasH);
+                   }
+                   for(var q = 0; q < canvasH; q += subH){
+                       ctx.moveTo(0,q);
+                       ctx.lineTo(canvasW, q);
+                   }
+                   ctx.stroke();
+                   //confirm();
+               }
+               /* Moved to js file
+               function checkInput(){
+                   console.log(input);
+                   if(input.length < 9){
+                       return;
+                   }
+                   for(var i = 0; i < 9; i++){
+                       if(input[i] != testSequence[i]){
+                           clearSelected();
+                           alert("incorrect");
+                           return;
+                       }
+                       else{
+                            alert("Sucessfully logged in!"); //TODO: make this better lol
+                            window.location.href = "loggedin.html?username="+document.getElementById('username').value;
+                            return;
+                       }
+                   }
+                  
+               }*/
+
+              function clearSelected(){
+                   imagePieces.forEach(t => {t.box.style.backgroundColor = "transparent"});
+                   input = [];
+               }
+              
+             
+           
+           
+       </script>
+    </center>
+
+    </body>
+</html>
